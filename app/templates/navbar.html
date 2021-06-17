@@ -7,15 +7,17 @@
 		</div>
         </a>
 		<div class="logout-div">
+            <div class="genres mx-4">
+                    <h4>Genres</h4>
+                </div>
 			{% if current_user.is_authenticated %}
+                <div class="logged_in_user mx-3">
+                    <h3>{{ current_user.username }}</h3></div>
                 <div class="logout-btn">
 				<form action="{{url_for('auth.logout')}}">
                     <button type="submit" class="btn logout">Log Out</button>
                 </form>
 			</div>
-            <div class="profile mx-4">
-                <img src="{{url_for('static', filename=current_user.profile_pic_path)}}">
-            </div>
             {% else %}
             <div class="logout-btn">
 				<form action="{{url_for('auth.login')}}">
