@@ -13,6 +13,16 @@ body {
     font-family: $theme-font;
     background-color: $darks !important;
     color: white;
+    a{
+        color: white;
+        text-decoration: none;
+        &:hover{
+            color: white;
+            border-bottom: 2px solid white;
+            padding-bottom: 0.5rem;
+            text-decoration: none;
+        }
+    }
 }
 
 .navbar {
@@ -174,4 +184,9 @@ body {
     .sign-title {
         color: $darks;
     }
+}
+
+// Genres
+.genre-name{
+    font-size: 1.5rem;
 }

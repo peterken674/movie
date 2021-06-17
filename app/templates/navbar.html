@@ -8,7 +8,7 @@
         </a>
 		<div class="logout-div">
             <div class="genres mx-4">
-                    <h4>Genres</h4>
+                    <h4><a href="{{url_for('main.genres')}}">Genres</a></h4>
                 </div>
 			{% if current_user.is_authenticated %}
                 <div class="logged_in_user mx-3">

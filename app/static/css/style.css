@@ -6,6 +6,20 @@ body {
   color: white;
 }
 
+html a,
+body a {
+  color: white;
+  text-decoration: none;
+}
+
+html a:hover,
+body a:hover {
+  color: white;
+  border-bottom: 2px solid white;
+  padding-bottom: 0.5rem;
+  text-decoration: none;
+}
+
 .navbar {
   background-color: #bb0010;
   position: fixed;
@@ -195,5 +209,9 @@ body {
 .sign-form .sign-title,
 .new .sign-title {
   color: #202020;
+}
+
+.genre-name {
+  font-size: 1.5rem;
 }
 /*# sourceMappingURL=style.css.map */
