@@ -1,3 +1,136 @@
-h1{
-    background-color: red;
+$darks: #474259;
+$primary-color: #43057e;
+$secondary-color: #F199F2;
+$bg-color: #EEF1F6;
+$theme-font: 'Poppins',
+sans-serif;
+$transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+html,
+body {
+    font-family: $theme-font;
+    background-color: $bg-color;
+    background-image: url('../img/bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.navbar {
+    background-color: $primary-color;
+    position: fixed;
+    z-index: 100;
+}
+
+.navdiv {
+    background: $primary-color;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    a {
+        text-decoration: none;
+    }
+
+    .logodiv {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        height: 100%;
+        align-items: center;
+
+        .logo {
+            font-size: 4rem;
+            color: white;
+        }
+
+        .name {
+            font-size: 4rem;
+            color: white;
+        }
+    }
+
+    .logout-div {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        align-items: center;
+
+        .logout {
+            background-color: $primary-color;
+            color: white;
+            font-family: $theme-font;
+            font-size: 1.5rem;
+            height: 4rem;
+            border-radius: 0.5rem;
+            transition: $transition;
+            border: 1px solid white;
+
+            &:hover {
+                background-color: white;
+                color: $primary-color;
+
+            }
+        }
+
+        .profile {
+            img {
+                height: 4rem;
+                width: 4rem;
+                object-fit: cover;
+                overflow: hidden;
+                border-radius: 0.5rem;
+            }
+        }
+    }
+}
+
+
+
+
+
+.movies-wrapper{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+// .home{
+//     margin-top: rem;
+// }
+.movie{
+    margin: 2rem;
+    .movie-poster{
+        height: 200px;
+        width: 200px;
+        
+        img{
+            height: 200px;
+            width: 200px;
+            object-fit: cover;
+            
+        }
+        
+    }
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    box-shadow: 0 0 3px grey;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    color: grey;
+    background-color: white;
+}
+
+.content-wrapper {
+    margin-top: 20vh;
+    position: relative;
 }
