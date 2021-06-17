@@ -70,3 +70,15 @@ class FavoriteGenre(db.Model):
     name = db.Column(db.String(255))
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+
+class Trailer:
+    '''
+    Class to store trailer details.
+    '''
+    def __init__(self, id, key, name, site, trailer_type):
+        self.id = id
+        self.link = 'https://www.youtube.com/watch?v=' + key
+        self.name = name
+        self.site = site
+        self.type = trailer_type

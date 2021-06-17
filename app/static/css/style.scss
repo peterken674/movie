@@ -119,6 +119,7 @@ body {
             height: auto;
             width: 200px;
             object-fit: contain;
+            border-radius: 0.5rem;
             
         }
         
@@ -214,6 +215,9 @@ body {
         font-weight: 300;
     }
     h2{
+        color: $primary-color;
+    }
+    input{
         color: $primary-color;
     }
 }

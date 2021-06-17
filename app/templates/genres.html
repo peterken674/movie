@@ -5,13 +5,14 @@
 <div class="home">
     <div class="container">
         <div class="card-body">
-            <div class="row">
+            <div>
 
-                <div class="form-div p-4">
-                    <form class="col-md-4" method="POST" action="/genres">
+                <div class="form-div col-12 p-5">
+                    <form method="POST" action="/genres">
                         <h2 class="my-3">Select favorite genres.</h2>
+                        <div class="row p-4">
                         {% for genre in genres %}
-                        <div class="form-check">
+                        <div class="form-check col-lg-4">
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" name="fav_genres"
                                     value="{{ genre['id']}}">
@@ -19,6 +20,7 @@
                             </label>
                         </div>
                         {% endfor %}
+                        </div>
                         <button type="submit" class="btn btn-outline-primary my-3" id="genresSubmit">Submit</button>
                     </form>
                 </div>

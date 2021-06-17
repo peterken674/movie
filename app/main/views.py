@@ -20,7 +20,7 @@ def index():
 @login_required
 def genres():
 
-    title = 'Genres| MOTD'
+    title = 'Genres | MOTD'
     genres = get_genres()
 
     if request.method == 'POST':

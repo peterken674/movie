@@ -6,6 +6,7 @@ class Config:
     '''
     MOVIE_API_BASE_URL = 'https://api.themoviedb.org/3/movie/{}?api_key={}'
     GENRES_URL ='https://api.themoviedb.org/3/genre/movie/list?api_key={}'
+    TRAILERS_URL = 'https://api.themoviedb.org/3/movie/{}/videos?api_key={}&language=en-US'
 
 
 
