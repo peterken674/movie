@@ -68,3 +68,5 @@ class FavoriteGenre(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     genre_id = db.Column(db.Integer)
     name = db.Column(db.String(255))
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
