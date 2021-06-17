@@ -1,13 +1,15 @@
 import urllib.request, json
-from .models import Movie
+from .models import Movie, Genre
 
 api_key=None
 base_url=None
+genres_url=None
 
 def configure_request(app):
-    global api_key, base_url
+    global api_key, base_url, genres_url
     api_key = app.config['MOVIE_API_KEY']
     base_url = app.config['MOVIE_API_BASE_URL']
+    genres_url = app.config['GENRES_URL']
 
 def get_movies(category):
     '''
@@ -54,3 +56,26 @@ def process_results(movie_list):
             movie_results.append(movie_object)
 
     return movie_results
+
+def get_genres():
+    get_genres_url = genres_url.format(api_key)
+    with urllib.request.urlopen(get_genres_url) as url:
+        get_genres_data = url.read()
+        get_genres_response = json.loads(get_genres_data)
+        
+        genres_results = None
+        
+        if get_genres_response['genres']:
+            genres_results_list = get_genres_response['genres']
+            genres_results = process_genres_results(genres_results_list)
+        
+    return genres_results
+
+def process_genres_results(genres_results_list):
+    genres_results = []
+    for genre_item in genres_results_list:
+        id = genre_item.get('id')
+        name = genre_item.get('name')
+        genre_object = Genre(id,name)
+        genres_results.append(genre_object)
+    return genres_results

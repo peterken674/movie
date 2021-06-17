@@ -1,3 +1,4 @@
+from sqlalchemy.orm import backref, lazyload
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -17,6 +18,8 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     subscribed = db.Column(db.Boolean)
     password_hash = db.Column(db.String(255))
+
+    genres = db.relationship('FavoriteGenre', backref='user', lazy='dynamic')
 
     @property
     def password(self):
@@ -48,3 +51,20 @@ class Movie:
         self.vote_count = vote_count
         self.backdrop_path= backdrop_path
         self.genres = genres
+
+class Genre:
+    '''
+    Class to define genres.
+    '''
+
+    def __init__(self,id,name):
+        self.id = id
+        self.name = name
+
+class FavoriteGenre(db.Model):
+
+    __tablename__ = 'favorite_genres'
+
+    id = db.Column(db.Integer, primary_key=True)
+    genre_id = db.Column(db.Integer)
+    name = db.Column(db.String(255))

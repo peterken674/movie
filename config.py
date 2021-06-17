@@ -5,6 +5,10 @@ class Config:
     General configuration parent class
     '''
     MOVIE_API_BASE_URL = 'https://api.themoviedb.org/3/movie/{}?api_key={}'
+    GENRES_URL ='https://api.themoviedb.org/3/genre/movie/list?api_key={}'
+
+
+
     MOVIE_API_KEY = os.environ.get('MOVIE_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
     

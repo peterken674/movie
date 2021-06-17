@@ -212,6 +212,38 @@ body a:hover {
 }
 
 .genre-name {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.form-check {
   font-size: 1.5rem;
+}
+
+#genresSubmit {
+  color: #bb0010;
+  font-size: 1.6rem;
+  outline-color: #bb0010;
+  border-color: #bb0010;
+}
+
+#genresSubmit:hover {
+  background-color: #bb0010;
+  color: white;
+}
+
+.form-div {
+  background-color: white;
+  border-radius: 1rem;
+  color: #202020;
+}
+
+.form-div label {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.form-div h2 {
+  color: #bb0010;
 }
 /*# sourceMappingURL=style.css.map */
