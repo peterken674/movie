@@ -14,6 +14,7 @@ def index():
     popular_movies = get_movies('popular')
     title='Home | MOTD'
 
+
     return render_template('home.html', popular=popular_movies, title=title)
 
 @main.route('/genres', methods=['GET', 'POST'])

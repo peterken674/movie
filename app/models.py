@@ -42,7 +42,7 @@ class Movie:
     Movie class to define Movie Objects
     '''
 
-    def __init__(self,movie_id,title,overview,poster,vote_average,vote_count, backdrop_path, genres):
+    def __init__(self,movie_id,title,overview,poster,vote_average,vote_count, backdrop_path, genres, trailer):
         self.movie_id =movie_id
         self.title = title
         self.overview = overview
@@ -51,6 +51,7 @@ class Movie:
         self.vote_count = vote_count
         self.backdrop_path= backdrop_path
         self.genres = genres
+        self.trailer_url = trailer
 
 class Genre:
     '''
@@ -81,4 +82,4 @@ class Trailer:
         self.link = 'https://www.youtube.com/watch?v=' + key
         self.name = name
         self.site = site
-        self.type = trailer_type
+        self.trailer_type = trailer_type

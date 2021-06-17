@@ -1,15 +1,17 @@
 import urllib.request, json
-from .models import Movie, Genre
+from .models import Movie, Genre, Trailer
 
 api_key=None
 base_url=None
 genres_url=None
+trailer_url=None
 
 def configure_request(app):
-    global api_key, base_url, genres_url
+    global api_key, base_url, genres_url, trailer_url
     api_key = app.config['MOVIE_API_KEY']
     base_url = app.config['MOVIE_API_BASE_URL']
     genres_url = app.config['GENRES_URL']
+    trailer_url = app.config['TRAILERS_URL']
 
 def get_movies(category):
     '''
@@ -50,9 +52,16 @@ def process_results(movie_list):
         vote_count = movie_item.get('vote_count')
         backdrop_path = movie_item.get('backdrop_path')
         genres = movie_item.get('genre_ids')
+        trailers_list = get_trailer(movie_id)
+
+
+        for trailer in trailers_list:
+            if trailer.site == 'YouTube':
+                trailer_url = trailer.link
+                break
 
         if poster:
-            movie_object = Movie(movie_id,title,overview,poster,vote_average,vote_count, backdrop_path, genres)
+            movie_object = Movie(movie_id,title,overview,poster,vote_average,vote_count, backdrop_path, genres, trailer_url)
             movie_results.append(movie_object)
 
     return movie_results
@@ -80,4 +89,33 @@ def process_genres_results(genres_results_list):
         genres_results.append(genre_object)
     return genres_results
 
+# Trailer request.
+def get_trailer(movie_id):
+    get_trailer_url = trailer_url.format(movie_id, api_key)
 
+    with urllib.request.urlopen(get_trailer_url) as url:
+        get_trailer_data = url.read()
+        get_trailers_response = json.loads(get_trailer_data)
+
+        trailer_results = None
+
+        if get_trailers_response['results']:
+            trailer_results_list = get_trailers_response['results']
+            trailer_results = process_trailer_results(trailer_results_list)
+
+    return trailer_results
+
+def process_trailer_results(trailer_results_list):
+    trailer_results = []
+
+    for trailer in trailer_results_list:
+        id = trailer.get('id')
+        key = trailer.get('key')
+        name = trailer.get('name')
+        site = trailer.get('site')
+        trailer_type = trailer.get('type')
+
+        trailer_obj = Trailer(id, key, name, site, trailer_type)
+        trailer_results.append(trailer_obj)
+
+    return trailer_results
