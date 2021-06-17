@@ -25,6 +25,10 @@ def create_app(config_name):
     login_manager.init_app(app)
     mail.init_app(app)
 
+    # Setting config
+    from .requests import configure_request
+    configure_request(app)
+
     # Registering the blueprint
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)

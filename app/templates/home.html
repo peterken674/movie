@@ -1,87 +1,16 @@
 {% extends 'index.html'%}
-<!-- {% import 'macros.html' as macro%} -->
+{% import 'macros.html' as macro%}
 
 {% block movies %} {{ super() }}
 <div class="home">
     <div class="container">
-	<h1>Popular Movies</h1>
 	<div>
 		<div class="col">
+            <h1>Popular Movies</h1>
 			<div class="movies-wrapper">
-				<div class="movie">
-					<div class="movie-poster">
-						<img src="{{url_for('static', filename='img/movie.jpg')}}" />
-					</div>
-					<div class="movie-name">
-						<h4>The Old Guard</h4>
-					</div>
-				</div>
 
-				<div class="movie">
-					<div class="movie-poster">
-						<img src="{{url_for('static', filename='img/movie.jpg')}}" />
-					</div>
-					<div class="movie-name">
-						<h4>The Old Guard</h4>
-					</div>
-				</div>
-				<div class="movie">
-					<div class="movie-poster">
-						<img src="{{url_for('static', filename='img/movie.jpg')}}" />
-					</div>
-					<div class="movie-name">
-						<h4>The Old Guard</h4>
-					</div>
-				</div>
-				<div class="movie">
-					<div class="movie-poster">
-						<img src="{{url_for('static', filename='img/movie.jpg')}}" />
-					</div>
-					<div class="movie-name">
-						<h4>The Old Guard</h4>
-					</div>
-				</div>
-                <div class="movie">
-					<div class="movie-poster">
-						<img src="{{url_for('static', filename='img/movie.jpg')}}" />
-					</div>
-					<div class="movie-name">
-						<h4>The Old Guard</h4>
-					</div>
-				</div>
+				{{macro.displayMovieList(popular)}}
 
-				<div class="movie">
-					<div class="movie-poster">
-						<img src="{{url_for('static', filename='img/movie.jpg')}}" />
-					</div>
-					<div class="movie-name">
-						<h4>The Old Guard</h4>
-					</div>
-				</div>
-				<div class="movie">
-					<div class="movie-poster">
-						<img src="{{url_for('static', filename='img/movie.jpg')}}" />
-					</div>
-					<div class="movie-name">
-						<h4>The Old Guard</h4>
-					</div>
-				</div>
-				<div class="movie">
-					<div class="movie-poster">
-						<img src="{{url_for('static', filename='img/movie.jpg')}}" />
-					</div>
-					<div class="movie-name">
-						<h4>The Old Guard</h4>
-					</div>
-				</div>
-				<div class="movie">
-					<div class="movie-poster">
-						<img src="{{url_for('static', filename='img/movie.jpg')}}" />
-					</div>
-					<div class="movie-name">
-						<h4>The Old Guard</h4>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
