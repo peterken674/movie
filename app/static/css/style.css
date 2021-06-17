@@ -2,21 +2,18 @@
 html,
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #EEF1F6;
-  background-image: url("../img/bg.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: bottom;
+  background-color: #202020 !important;
+  color: white;
 }
 
 .navbar {
-  background-color: #43057e;
+  background-color: #bb0010;
   position: fixed;
   z-index: 100;
 }
 
 .navdiv {
-  background: #43057e;
+  background: #bb0010;
   height: 10vh;
   width: 100%;
   display: -webkit-box;
@@ -76,7 +73,7 @@ body {
 }
 
 .navdiv .logout-div .logout {
-  background-color: #43057e;
+  background-color: #bb0010;
   color: white;
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
@@ -89,7 +86,7 @@ body {
 
 .navdiv .logout-div .logout:hover {
   background-color: white;
-  color: #43057e;
+  color: #bb0010;
 }
 
 .navdiv .logout-div .profile img {
@@ -119,15 +116,15 @@ body {
 }
 
 .movie .movie-poster {
-  height: 200px;
+  height: auto;
   width: 200px;
 }
 
 .movie .movie-poster img {
-  height: 200px;
+  height: auto;
   width: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .footer {
@@ -146,5 +143,57 @@ body {
 .content-wrapper {
   margin-top: 20vh;
   position: relative;
+}
+
+.sign-form,
+.new {
+  margin-top: 15vh;
+  font-size: 1.5rem;
+  color: #bb0010;
+}
+
+.sign-form .col-8,
+.new .col-8 {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 4rem;
+}
+
+.sign-form .col-8 p,
+.new .col-8 p {
+  color: #202020;
+}
+
+.sign-form .col-8 p a,
+.new .col-8 p a {
+  color: #800155;
+}
+
+.sign-form .col-8 #submit,
+.new .col-8 #submit {
+  background-color: white;
+  border: 1px solid #bb0010;
+  color: #bb0010;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  -webkit-transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+}
+
+.sign-form .col-8 #submit:hover,
+.new .col-8 #submit:hover {
+  background-color: #bb0010;
+  color: white;
+}
+
+.sign-form .col-8 label,
+.new .col-8 label {
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.sign-form .sign-title,
+.new .sign-title {
+  color: #202020;
 }
 /*# sourceMappingURL=style.css.map */

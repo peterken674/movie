@@ -1,6 +1,6 @@
-$darks: #474259;
-$primary-color: #43057e;
-$secondary-color: #F199F2;
+$darks: #202020;
+$primary-color: #bb0010;
+$secondary-color: #800155;
 $bg-color: #EEF1F6;
 $theme-font: 'Poppins',
 sans-serif;
@@ -11,11 +11,8 @@ $transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
 html,
 body {
     font-family: $theme-font;
-    background-color: $bg-color;
-    background-image: url('../img/bg.jpg');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: bottom;
+    background-color: $darks !important;
+    color: white;
 }
 
 .navbar {
@@ -105,13 +102,13 @@ body {
 .movie{
     margin: 2rem;
     .movie-poster{
-        height: 200px;
+        height: auto;
         width: 200px;
         
         img{
-            height: 200px;
+            height: auto;
             width: 200px;
-            object-fit: cover;
+            object-fit: contain;
             
         }
         
@@ -133,4 +130,48 @@ body {
 .content-wrapper {
     margin-top: 20vh;
     position: relative;
+}
+
+.sign-form,
+.new {
+    margin-top: 15vh;
+    font-size: 1.5rem;
+    color: $primary-color;
+
+    .col-8 {
+        background-color: white;
+        border-radius: 1rem;
+        padding: 4rem;
+
+        p {
+            color: $darks;
+
+            a {
+                color: $secondary-color;
+            }
+        }
+
+        #submit {
+            background-color: white;
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            font-size: 1.5rem;
+            border-radius: 0.5rem;
+            transition: $transition;
+
+            &:hover {
+                background-color: $primary-color;
+                color: white;
+            }
+        }
+
+        label {
+            font-weight: 500;
+            font-family: $theme-font;
+        }
+    }
+
+    .sign-title {
+        color: $darks;
+    }
 }

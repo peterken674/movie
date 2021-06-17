@@ -16,7 +16,7 @@ class RegistrationForm(FlaskForm):
     username = StringField('Enter your username',validators = [Required()])
     password = PasswordField('Password',validators = [Required(),
     EqualTo('password2',message = 'Passwords must match')])
-    password2 = PasswordField('Confirm Passwords',validators = [Required()])
+    password2 = PasswordField('Confirm Password',validators = [Required()])
     subscribed = BooleanField('Subscribe to receive daily movie recommendations in your email.')
     submit = SubmitField('Sign Up')
 
