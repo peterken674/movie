@@ -6,6 +6,8 @@ from ..models import User
 from .forms import LoginForm,RegistrationForm
 from .. import db
 from ..email import mail_message
+import datetime as dt
+from ..email import send_recommendation_at
 
 @auth.route('/login',methods=['GET','POST'])
 def login():
@@ -31,8 +33,16 @@ def register():
         db.session.commit()
 
         mail_message("Welcome to MOTD","email/welcome_user",user.email,user=user)
+
+        first_email_time = dt.datetime(2021, 6, 17, 17, 0, 0)
+        interval = dt.timedelta(hours=24)
+
+        send_time = first_email_time
+        while True:
+            send_recommendation_at(send_time)
+            send_time = send_time + interval
   
-        return redirect(url_for('auth.login'))
+
     title = "New Account | MOTD"
     return render_template('auth/register.html',registration_form = form, title = title)
 

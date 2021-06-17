@@ -1,17 +1,21 @@
 import urllib.request, json
-from .models import Movie, Genre, Trailer
+
+from flask.globals import session
+from .models import Movie, Genre, Trailer, FavoriteGenre
 
 api_key=None
 base_url=None
 genres_url=None
 trailer_url=None
+genre_movies_url=None
 
 def configure_request(app):
-    global api_key, base_url, genres_url, trailer_url
+    global api_key, base_url, genres_url, trailer_url, genre_movies_url
     api_key = app.config['MOVIE_API_KEY']
     base_url = app.config['MOVIE_API_BASE_URL']
     genres_url = app.config['GENRES_URL']
     trailer_url = app.config['TRAILERS_URL']
+    genre_movies_url = app.config['GENRE_MOVIES_URL']
 
 def get_movies(category):
     '''
@@ -119,3 +123,30 @@ def process_trailer_results(trailer_results_list):
         trailer_results.append(trailer_obj)
 
     return trailer_results
+
+
+def get_genre_movies(id):
+    get_genre_movies_url = genre_movies_url.format(api_key,id)
+    with urllib.request.urlopen(get_genre_movies_url) as url:
+        genre_movies_data = url.read()
+        genre_movies_response = json.loads(genre_movies_data)
+
+        genre_movies_results = None
+
+        if genre_movies_response['results']:
+            genre_movies_list = genre_movies_response['results']
+            genre_movies_results = process_results(genre_movies_list)
+            
+    return genre_movies_results
+
+def get_favorite_movies():
+    fav_genres = FavoriteGenre.query.all()
+
+    fav_movies_list = []
+    for genre in fav_genres:
+        genre_movies = get_genre_movies(genre.genre_id)
+        fav_movies_list = fav_movies_list.extend(genre_movies)
+
+    return fav_movies_list
+
+    

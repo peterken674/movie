@@ -4,7 +4,7 @@ from flask.globals import request
 from flask.helpers import url_for
 from werkzeug.utils import redirect
 from . import main
-from ..requests import get_movies, get_genres
+from ..requests import get_movies, get_genres, get_favorite_movies
 from flask_login import login_required
 from .. import db
 
