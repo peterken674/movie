@@ -32,3 +32,19 @@ class User(UserMixin,db.Model):
 
     def __repr__(self):
         return f'User {self.username}'
+
+
+class Movie:
+    '''
+    Movie class to define Movie Objects
+    '''
+
+    def __init__(self,movie_id,title,overview,poster,vote_average,vote_count, backdrop_path, genres):
+        self.movie_id =movie_id
+        self.title = title
+        self.overview = overview
+        self.poster = "https://image.tmdb.org/t/p/w500/" + poster
+        self.vote_average = vote_average
+        self.vote_count = vote_count
+        self.backdrop_path= backdrop_path
+        self.genres = genres
